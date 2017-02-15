@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h1>MSTUDY Dashboard</h1>
+
+<p>CLIPBOARD</p>
+<p><textarea class="textarea" rows='9' cols='26'>Your recorded text will appear here.</textarea>
+
+<p><button class="js-textareacutbtn">CUT</button></p>
+<p><button class="js-textareacopybtn">COPY</button></p>
+<p><button class="js-textareapastebtn">PASTE</button></p>
+
+<script type="text/javascript">
+var cut_button = document.querySelector('.js-textareacutbtn');
+cut_button.addEventListener('click', function(event)
+{
+	var cut_text = document.querySelector('textarea');
+	cut_text.select();
+	try
+	{
+		var successful = document.execCommand('cut');
+		var message = 'successful';
+		if (!successful)
+			message = 'unsucessful';
+		console.log('Cutting clipboard text was '+message);
+	}
+	catch(err)
+	{
+		console.log('Error: unable to cut');
+	}
+});
+</script>
+
+<script type="text/javascript">
+var copy_button = document.querySelector('.js-textareacopybtn');
+copy_button.addEventListener('click', function(event)
+{
+	var copy_text = document.querySelector('textarea');
+	copy_text.select();
+	try
+	{
+		var successful = document.execCommand('copy');
+		var message = 'successful';
+		if (!successful)
+			message = 'unsucessful';
+		console.log('Copying clipboard text was '+message);
+	}
+	catch(err)
+	{
+		console.log('Error: unable to copy');
+	}
+});
+</script>
+
+<script type="text/javascript">
+var paste_button = document.querySelector('.js-textareapastebtn');
+paste_button.addEventListener('click', function(event)
+{
+	var paste_text = document.querySelector('textarea');
+	paste_text.select();
+	try
+	{
+		focus();
+		var successful = document.execCommand('paste');
+		var message = 'successful';
+		if (!successful)
+			message = 'unsucessful';
+		console.log('Pasting clipboard text was '+message);
+	}
+	catch(err)
+	{
+		console.log('Error: unable to paste');
+	}
+});
+</script>
+
+</body>
+
+</html>
