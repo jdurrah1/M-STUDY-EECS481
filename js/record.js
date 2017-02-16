@@ -33,7 +33,7 @@ function createWAVfile() {
 
 		$.ajax({
 			type: 'POST',
-			url: 'https://apis.voicebase.com/v2-beta/media',
+			url: 'create_file.php',
 			data: { 
 				formData
 			},
