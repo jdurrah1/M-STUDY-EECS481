@@ -14,12 +14,16 @@
 	<p><button class="js-textareacopybtn">COPY</button></p>
 	<p><button class="js-textareapastebtn">PASTE</button></p>
 
-	<script src="../js/cut-copy-paste.js"></script>
+	<script src="/static/js/cut-copy-paste.js"></script>
+
+	<p><button><a href={{url_for('docs_page')}}>MANAGE DOCS</a></button></p>
+
+	<p><button>SAVE</button></p>
 
 	<div id="controls">
-		<img id="record" src="../img/record.png" onclick="toggleRecording(this);" style="width:100px; height:100px;">
-	<script src = "../js/record.js"></script>
-	<script src="../Recorderjs-master/dist/recorder.js"></script>
+		<img id="record" src="/static/images/record_voice.png" onclick="toggleRecording(this);">
+	<script src = "/static/js/record.js"></script>
+	<script src="/static/js/Recorderjs-master/dist/recorder.js"></script>
 
 </body>
 

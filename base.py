@@ -12,6 +12,11 @@ def home_page():
     return render_template('base.html')
 
 
+@app.route('/docs')
+def docs_page():
+    return render_template('docs.html')
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
