@@ -1,0 +1,11 @@
+{
+	"name": "MStudy-01",
+	"description": "A tool to help our client Brad record and manipulate text.",
+	"version": "0.0.0.1",
+	"manifest_version": 2,
+	"permissions":
+	[
+		"clipboardRead",
+		"clipboardWrite"
+	]
+}

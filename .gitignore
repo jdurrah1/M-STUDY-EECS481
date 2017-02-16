@@ -9,5 +9,3 @@ __pycache__/*
 controllers/__pycache__/*
 
 controllers/*.pyc
-static/*
-config.py
