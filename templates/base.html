@@ -1,19 +1,32 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MSTUDY</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-<html>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <body>
+<div class="container-fluid">
+  <div class="jumbotron" style="background-color:#87CEEB; color: #FFFF00;">
+    <h1>MSTUDY Dashboard</h1>      
+  </div>
 
-	<h1>MSTUDY Dashboard</h1>
-
-	<p>CLIPBOARD</p>
-	<p><textarea class="textarea" rows='9' cols='26'>Your recorded text will appear here.</textarea>
-
-	<p><button class="js-textareacutbtn">CUT</button></p>
-	<p><button class="js-textareacopybtn">COPY</button></p>
-	<p><button class="js-textareapastebtn">PASTE</button></p>
-
+  <div class="input-group">
+    <label for="clipBoard">CLIPBOARD:</label>
+   <textarea class="form-control textarea" rows="5" id="clipBoard">Your recorded text will appear here.</textarea>
+   <span class="input-group-btn">
+      <div class="btn-group-vertical">
+        <button type="button" class="btn btn-primary js-textareacutbtn">CUT</button>
+        <button type="button" class="btn btn-primary js-textareacopybtn">COPY</button>
+        <button type="button" class="btn btn-primary js-textareapastebtn">PAST</button>
+      </div>
+   </span>  
+  </div>
 	<script src="/static/js/cut-copy-paste.js"></script>
 
 	<p><button><a href={{url_for('docs_page')}}>MANAGE DOCS</a></button></p>
@@ -21,10 +34,15 @@
 	<p><button>SAVE</button></p>
 
 	<div id="controls">
-		<img id="record" src="/static/images/record_voice.png" onclick="toggleRecording(this);">
+		<img id="record" src="/static/images/record_voice.png" onclick="toggleRecording(this);"/>
+	</div>
+
 	<script src = "/static/js/record.js"></script>
 	<script src="/static/js/Recorderjs-master/dist/recorder.js"></script>
 
+</div>
 </body>
+
+
 
 </html>
