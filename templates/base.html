@@ -18,20 +18,21 @@
 
   <div class="input-group">
     <label for="clipBoard">CLIPBOARD:</label>
-   <textarea class="form-control textarea" rows="5" id="clipBoard">Your recorded text will appear here.</textarea>
+   <form method="post">
+   	<textarea class="form-control textarea" rows="5" id="clipBoard" name="text">Your recorded text will appear here.</textarea>
+   	<p><input type="submit" value="[SAVE]"></input></p>
+   </form>
    <span class="input-group-btn">
       <div class="btn-group-vertical">
         <button type="button" class="btn btn-primary js-textareacutbtn">CUT</button>
         <button type="button" class="btn btn-primary js-textareacopybtn">COPY</button>
-        <button type="button" class="btn btn-primary js-textareapastebtn">PAST</button>
+        <button type="button" class="btn btn-primary js-textareapastebtn">PASTE</button>
       </div>
    </span>  
   </div>
 	<script src="/static/js/cut-copy-paste.js"></script>
 
 	<p><button><a href={{url_for('docs_page')}}>MANAGE DOCS</a></button></p>
-
-	<p><button>SAVE</button></p>
 
 	<div id="controls">
 		<img id="record" src="../static/images/record_voice.png" onclick="toggleRecording(this);"/>

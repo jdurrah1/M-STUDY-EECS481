@@ -8,13 +8,15 @@
 	<h1>MSTUDY Manage Docs</h1>
 
 	<p>SAVED DOCS</p>
-	
+	<form>
+		{% for dict_i in dictlist %}
+		<p><input type="radio" name="text" value="{{dict_i['text']}}">{{dict_i['text']}}</input></p>
+		{% endfor %}
+		<p><input type="submit" value="PUT ON CLIPBOARD"></input></p>
+	</form>
 
 	<p><button><a href={{url_for('home_page')}}>BACK</a></button></p>
-	<p><button>PUT ON CLIPBOARD</button></p>
 	<p><button>DELETE</button></p>
-
-	<script src="/static/js/cut-copy-paste.js"></script>
 
 </body>
 

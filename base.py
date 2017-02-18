@@ -7,14 +7,28 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/images'
 
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def home_page():
+    if request.method == 'POST':
+        db = connect_to_database()
+        cur = db.cursor()
+        cur.execute("INSERT INTO Docs (text) VALUES ('"+request.form['text']+"');")
+        print("Inserted text into database")
+        #return redirect(url_for('albums_edit_page', username=my_username))
     return render_template('base.html')
 
 
-@app.route('/docs')
+@app.route('/docs', methods=['GET','POST'])
 def docs_page():
-    return render_template('docs.html')
+    db = connect_to_database()
+    if request.method == 'POST':
+        cur = db.cursor()
+        cur.execute("DELETE * FROM Clipboard")
+        cur.execute("INSERT INTO Clipboard (text) VALUES ('"+request.form['text']+"')")
+    cur = db.cursor()
+    cur.execute("SELECT text FROM Docs")
+    my_dictlist = cur.fetchall()
+    return render_template('docs.html', dictlist=my_dictlist)
 
 
 @app.errorhandler(404)

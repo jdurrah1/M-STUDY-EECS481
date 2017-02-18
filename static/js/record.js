@@ -33,7 +33,7 @@ function createWAVfile() {
 
 		$.ajax({
 			type: 'POST',
-			url: 'create_file.php',
+			url: 'https://apis.voicebase.com/v2-beta/media',
 			data: { 
 				formData
 			},
@@ -41,6 +41,7 @@ function createWAVfile() {
 			contentType: false,
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader('Authorization','Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxZjM3ZWM4MS1jZWJhLTQ2YjctODViNC1hYWE4NzYxZTI0MzMiLCJ1c2VySWQiOiJhdXRoMHw1ODlhNWU3NjJkMzYzMDRmOTg2MTY5ZGMiLCJvcmdhbml6YXRpb25JZCI6ImEzNTJjNTM4LTNhZmUtMDM2Ni02YTBmLWFkNjEyMmRiMGJjZCIsImV4cCI6MTQ4NzE5ODQ0NzM0NywiZXBoZW1lcmFsIjp0cnVlLCJpYXQiOjE0ODcxOTEyNDczNDcsImlzcyI6Imh0dHA6Ly93d3cudm9pY2ViYXNlLmNvbSJ9.htverlwM-XWzledeG_sdXqcrFDesL1HDtTk1OlegROI');
+				xhr.setRequestHeader('Content-Type','multipart/form-data');
 			},
 			success: function(data) {
 				console.log(data);
