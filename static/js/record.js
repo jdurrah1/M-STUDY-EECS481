@@ -33,7 +33,7 @@ function createWAVfile() {
 
 		$.ajax({
 			type: 'POST',
-			url: 'create_file.php',
+			url: 'static/create_file.php',
 			data: { 
 				formData
 			},

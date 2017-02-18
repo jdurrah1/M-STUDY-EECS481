@@ -8,15 +8,19 @@
 	<h1>MSTUDY Manage Docs</h1>
 
 	<p>SAVED DOCS</p>
-	<form>
+	<form method="post">
+		<fieldset><input type="radio" name="text" value="This is a default message.  When you click [SAVE] on the dashboard page, the text in the clipboard will appear as a message in this list.  The maximum message size is 2000 characters, and all double quotes will be converted to single quotes.  (Note: This message cannot be deleted.)" checked>This is a default message.  When you click [SAVE] on the dashboard page, the text in the clipboard will appear as a message in this list.  The maximum message size is 2000 characters, and all double quotes will be converted to single quotes.  (Note: This message cannot be deleted.)</input></fieldset>
 		{% for dict_i in dictlist %}
-		<p><input type="radio" name="text" value="{{dict_i['text']}}">{{dict_i['text']}}</input></p>
+		<fieldset><input type="radio" name="text" value="{{dict_i['text']}}"><legend><b>{{dict_i['title']}}</b></legend>{{dict_i['text']}}</input></fieldset>
 		{% endfor %}
-		<p><input type="submit" value="PUT ON CLIPBOARD"></input></p>
+		<p>WITH SELECTED TEXT:<p>
+		<p><input type="submit" name="op" value="PUT ON CLIPBOARD"></input></p>
+		<p><input type="submit" name="op" value="CHANGE TITLE"></input>
+		<input type="text" name="title"></input></p>
+		<p><input type="submit" name="op" value="DELETE"></input></p>
 	</form>
 
 	<p><button><a href={{url_for('home_page')}}>BACK</a></button></p>
-	<p><button>DELETE</button></p>
 
 </body>
 

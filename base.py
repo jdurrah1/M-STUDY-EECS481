@@ -9,24 +9,35 @@ app.config['UPLOAD_FOLDER'] = 'static/images'
 
 @app.route('/', methods=['GET','POST'])
 def home_page():
+    db = connect_to_database()
     if request.method == 'POST':
-        db = connect_to_database()
+        my_text = request.form['text'][:2000]
+        my_text = my_text.replace('"',"'")
         cur = db.cursor()
-        cur.execute("INSERT INTO Docs (text) VALUES ('"+request.form['text']+"');")
-        print("Inserted text into database")
-        #return redirect(url_for('albums_edit_page', username=my_username))
-    return render_template('base.html')
+        cur.execute('INSERT INTO Docs (text) VALUES ("'+my_text+'");')
+    cur = db.cursor()
+    cur.execute('SELECT text FROM Clipboard')
+    my_clipboard_string = cur.fetchall()[0]['text']
+    return render_template('base.html', clipboard_string=my_clipboard_string)
 
 
 @app.route('/docs', methods=['GET','POST'])
 def docs_page():
     db = connect_to_database()
     if request.method == 'POST':
-        cur = db.cursor()
-        cur.execute("DELETE * FROM Clipboard")
-        cur.execute("INSERT INTO Clipboard (text) VALUES ('"+request.form['text']+"')")
+        if request.form['op'] == 'PUT ON CLIPBOARD':
+            cur = db.cursor()
+            cur.execute('DELETE FROM Clipboard')
+            cur.execute('INSERT INTO Clipboard (text) VALUES ("'+request.form['text']+'")')
+        elif request.form['op'] == 'CHANGE TITLE':
+            print("Change Title call with request.form['title'] = '"+request.form['title']+"'")
+            cur = db.cursor()
+            cur.execute('UPDATE Docs SET title="'+request.form['title']+'" WHERE text="'+request.form['text']+'"')
+        else:
+            cur = db.cursor()
+            cur.execute('DELETE FROM Docs WHERE text="'+request.form['text']+'"')
     cur = db.cursor()
-    cur.execute("SELECT text FROM Docs")
+    cur.execute('SELECT text, title FROM Docs')
     my_dictlist = cur.fetchall()
     return render_template('docs.html', dictlist=my_dictlist)
 
