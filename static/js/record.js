@@ -27,22 +27,22 @@ function toggleRecording(button) {
 function createWAVfile() {
 	recorder && recorder.exportWAV(function(blob) {
 		var formData = new FormData();
-		formData.append("body", blob);
+		formData.append("media", blob);
 
 		console.log(formData);
 
 		$.ajax({
 			type: 'POST',
-			url: 'https://apis.voicebase.com/v2-beta/media',
+			url: 'create_file.php',
 			data: { 
 				formData
 			},
 			processData: false,
 			contentType: false,
-			beforeSend: function(xhr) {
-				xhr.setRequestHeader('Authorization','Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxZjM3ZWM4MS1jZWJhLTQ2YjctODViNC1hYWE4NzYxZTI0MzMiLCJ1c2VySWQiOiJhdXRoMHw1ODlhNWU3NjJkMzYzMDRmOTg2MTY5ZGMiLCJvcmdhbml6YXRpb25JZCI6ImEzNTJjNTM4LTNhZmUtMDM2Ni02YTBmLWFkNjEyMmRiMGJjZCIsImV4cCI6MTQ4NzE5ODQ0NzM0NywiZXBoZW1lcmFsIjp0cnVlLCJpYXQiOjE0ODcxOTEyNDczNDcsImlzcyI6Imh0dHA6Ly93d3cudm9pY2ViYXNlLmNvbSJ9.htverlwM-XWzledeG_sdXqcrFDesL1HDtTk1OlegROI');
-				xhr.setRequestHeader('Content-Type','multipart/form-data');
-			},
+			// beforeSend: function(xhr) {
+			// 	xhr.setRequestHeader('Authorization','Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2ODAyOTUwZC03NDhlLTQ4OWItOWE5OC1lOTAzNTM0NzQxZTciLCJ1c2VySWQiOiJhdXRoMHw1ODlhNWU3NjJkMzYzMDRmOTg2MTY5ZGMiLCJvcmdhbml6YXRpb25JZCI6ImEzNTJjNTM4LTNhZmUtMDM2Ni02YTBmLWFkNjEyMmRiMGJjZCIsImV4cCI6MTQ4NzQ1MzM3NjQ0NSwiZXBoZW1lcmFsIjp0cnVlLCJpYXQiOjE0ODc0NDYxNzY0NDUsImlzcyI6Imh0dHA6Ly93d3cudm9pY2ViYXNlLmNvbSJ9.zqBPSeNUgQwj3rOMJdV6Vvpbsy1j3Bl0OehIV9PCd9M');
+			// 	xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+			// },
 			success: function(data) {
 				console.log(data);
 			}
