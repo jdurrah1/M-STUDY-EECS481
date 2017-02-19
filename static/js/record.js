@@ -43,18 +43,6 @@ document.getElementById("file-form").onsubmit = function(event) {
 	formData.append('media', file, file.name);
 	console.log(formData);
 
-	// var xhr = new XMLHttpRequest();
-	// xhr.open("POST","https://apis.voicebase.com/v2-beta/media",true);
-	// xhr.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5NTdlODk3My0xYzU5LTRhODgtYTc4MS03NGZjNGI0ZDYyNWIiLCJ1c2VySWQiOiJhdXRoMHw1ODlhNWU3NjJkMzYzMDRmOTg2MTY5ZGMiLCJvcmdhbml6YXRpb25JZCI6ImEzNTJjNTM4LTNhZmUtMDM2Ni02YTBmLWFkNjEyMmRiMGJjZCIsImV4cCI6MTQ4NzQ2MzgxNjUzMSwiZXBoZW1lcmFsIjp0cnVlLCJpYXQiOjE0ODc0NTY2MTY1MzEsImlzcyI6Imh0dHA6Ly93d3cudm9pY2ViYXNlLmNvbSJ9.DMOfId0CRjXMobEUCA_svnvME7tuf3sWeokUkP2cvlw");
-	// xhr.setRequestHeader("Content-Type", "multipart/form-data");
-	// xhr.onreadystatechange = function() {
-	// 	if (xhr.status === 200) {
- //    		// File(s) uploaded.
- //    		uploadButton.innerHTML = 'Upload';
- //  		} else {
- //    		alert('An error occurred!');
- //  		}
-
 	 $.ajax({
 	 	type: 'POST',
 	 	url: 'create_file.php',
