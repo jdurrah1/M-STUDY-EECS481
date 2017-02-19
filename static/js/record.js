@@ -47,7 +47,6 @@ function createDownload() {
 		// 		console.log(data);
 		// 	}
 		// });
-	})
 }
 
 document.getElementById("file-form").onsubmit = function(event) {
