@@ -59,7 +59,7 @@ document.getElementById("file-form").onsubmit = function(event) {
 	 	type: 'POST',
 	 	url: 'create_file.php',
 	 	data: { 
-	 		form_data = formData
+	 		form_data : formData
 	 	},
 	 	processData: false,
 	 	contentType: false,
