@@ -39,9 +39,9 @@
 
     <a id="download_recording"> Download </a>
 
-    <form id="file-form" method="POST">
-      <input type="file" id="file-select" name="audio"/>
-      <button type="submit" id="upload-button">upload</button>
+    <form action="create_file.php" name="file-form" method="post" enctype= "multipart/form-data">
+      <input type="file" id="file" name="file"/>
+      <button type="submit" value="upload" name="button_upload">upload</button>
     </form>
 
 	</div>
