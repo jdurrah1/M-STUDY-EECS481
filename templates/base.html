@@ -35,6 +35,14 @@
 
 	<div id="controls">
 		<img id="record" src="../static/images/record_voice.png" onclick="toggleRecording(this);"/>
+
+    <a id="download_recording"> Download </a>
+
+    <form id="file-form" method="POST">
+      <input type="file" id="file-select" name="audio"/>
+      <button type="submit" id="upload-button">upload</button>
+    </form>
+
 	</div>
 
 	<script src = "../static/js/record.js"></script>
