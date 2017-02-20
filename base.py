@@ -25,6 +25,7 @@ def home_page():
 def docs_page():
     db = connect_to_database()
     if request.method == 'POST':
+        print('post request')
         if request.form['op'] == 'PUT ON CLIPBOARD':
             cur = db.cursor()
             cur.execute('DELETE FROM Clipboard')
@@ -33,9 +34,11 @@ def docs_page():
             print("Change Title call with request.form['title'] = '"+request.form['title']+"'")
             cur = db.cursor()
             cur.execute('UPDATE Docs SET title="'+request.form['title']+'" WHERE text="'+request.form['text']+'"')
-        else:
+        elif request.form['op'] == 'DELETE':
             cur = db.cursor()
             cur.execute('DELETE FROM Docs WHERE text="'+request.form['text']+'"')
+    else:
+        print('no post request')
     cur = db.cursor()
     cur.execute('SELECT text, title FROM Docs')
     my_dictlist = cur.fetchall()

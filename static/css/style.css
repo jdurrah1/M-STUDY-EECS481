@@ -1,6 +1,52 @@
-
-
-.center {
-	margin:0 auto;
-	max-width: 500px;
+body
+{
+	text-align: center;
+	background-color: #4da6ff;
 }
+
+h1
+{
+	text-align: center;
+	color: #ffff80;
+	font-size: 60px
+}
+
+h2
+{
+	text-align: center;
+	color: white;
+	font-size: 30px;
+}
+
+textarea
+{
+	font-size: 30px;
+}
+
+input
+{
+	font-size: 30px;
+	font-family: "Lucida Console";
+}
+
+a
+{
+	font-size: 40px;
+	font-family: "Lucida Console";
+}
+
+button
+{
+	font-size: 30px;
+	font-family: "Lucida Console";
+}
+
+fieldset
+{
+	text-align: left;
+	background-color: #4b6cce;
+	font-size: 25px;
+	color: #ffff80;
+	font-family: "Lucida Console";
+}
+

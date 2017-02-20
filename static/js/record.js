@@ -30,9 +30,10 @@ function createDownload() {
 		var dwn = document.getElementById('download_recording');
 		dwn.href = url;
 		dwn.download = new Date().toISOString() + '.wav';
+	});
 }
 
-document.getElementById("file-form").onsubmit = function(event) {
+/*document.getElementById("file-form").onsubmit = function(event) {
 	event.preventDefault();
 
 	var fileSelect = document.getElementById('file-select');
@@ -45,7 +46,7 @@ document.getElementById("file-form").onsubmit = function(event) {
 
 	 $.ajax({
 	 	type: 'POST',
-	 	url: 'create_file.php',
+	 	url: 'static/create_file.php',
 	 	data: { 
 	 		form_data : formData
 	 	},
@@ -55,7 +56,7 @@ document.getElementById("file-form").onsubmit = function(event) {
 			console.log(data);
 		}
 	});
-}
+}*/
 
 window.onload = function init() {
 	try {

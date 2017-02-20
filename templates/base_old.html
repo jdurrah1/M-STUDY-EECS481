@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MSTUDY</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+<div class="container-fluid">
+  <div class="jumbotron" style="background-color:#87CEEB; color: #FFFF00;">
+    <h1>MSTUDY Dashboard</h1>      
+  </div>
+
+  <div class="input-group">
+    <label for="clipBoard">CLIPBOARD:</label>
+   <form method="post">
+   	<textarea class="form-control textarea" rows="5" id="clipBoard" name="text">{{clipboard_string}}</textarea>
+   	<p><button type="submit"><img src="../static/images/save.png"></img></button></p>
+   </form>
+   <span class="input-group-btn">
+      <div class="btn-group-vertical">
+        <button type="button" class="btn btn-primary js-textareacutbtn"><img src="../static/images/cut.png"></img></button>
+        <button type="button" class="btn btn-primary js-textareacopybtn"><img src="../static/images/copy.png"></img></button>
+        <button type="button" class="btn btn-primary js-textareapastebtn"><img src="../static/images/paste.png"></img></button>
+      </div>
+   </span>  
+  </div>
+	<p><script src="../static/js/cut-copy-paste.js"></script>
+	<button><img src="../static/images/manage_docs.png"><a href={{url_for('docs_page')}}></a></img></button>
+
+	<div id="controls">
+		<button id="record" onclick="toggleRecording(this);"><img src="../static/images/record_voice.png"></img></button>
+
+    <a id="download_recording"> Download </a>
+
+    <form action="../static/create_file.php" name="file-form" method="post" enctype= "multipart/form-data">
+      <input type="file" id="file" name="file"/>
+      <button type="submit" value="upload" name="button_upload">upload</button>
+    </form>
+
+	</div></p>
+
+	<script src = "../static/js/record.js"></script>
+	<script src="../static/js/Recorderjs-master/dist/recorder.js"></script>
+
+</div>
+</body>
+
+
+
+</html>

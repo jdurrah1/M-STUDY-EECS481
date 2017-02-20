@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-
 <html>
+
+<head>
+  	<title>MSTUDY Manage Docs</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel=stylesheet href="../static/css/style.css"></link>
+</head>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <body>
 
 	<h1>MSTUDY Manage Docs</h1>
 
-	<p>SAVED DOCS</p>
+	<h2>SAVED DOCS</h2>
 	<form method="post">
 		<fieldset><input type="radio" name="text" value="This is a default message.  When you click [SAVE] on the dashboard page, the text in the clipboard will appear as a message in this list.  The maximum message size is 2000 characters, and all double quotes will be converted to single quotes.  (Note: This message cannot be deleted.)" checked>This is a default message.  When you click [SAVE] on the dashboard page, the text in the clipboard will appear as a message in this list.  The maximum message size is 2000 characters, and all double quotes will be converted to single quotes.  (Note: This message cannot be deleted.)</input></fieldset>
 		{% for dict_i in dictlist %}
-		<fieldset><input type="radio" name="text" value="{{dict_i['text']}}"><legend><b>{{dict_i['title']}}</b></legend>{{dict_i['text']}}</input></fieldset>
+			<fieldset><input type="radio" name="text" value="{{dict_i['text']}}">
+			  <legend><b>{{dict_i['title']}}</b></legend>{{dict_i['text']}}</input></fieldset>
 		{% endfor %}
-		<p>WITH SELECTED TEXT:<p>
-		<p><input type="submit" name="op" value="PUT ON CLIPBOARD"></input></p>
-		<p><input type="submit" name="op" value="CHANGE TITLE"></input>
+		<h2>WITH SELECTED MESSAGE:<h2>
+		<p><input type="image" name="op" src="../static/images/border_delete.png" value="DELETE"></input>
+		<input type="image" name="op" src="../static/images/border_put_on_clipboard.png" value="PUT ON CLIPBOARD"></input>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="image" name="op" src="../static/images/border_change_title.png" value="CHANGE TITLE"></input>
 		<input type="text" name="title"></input></p>
-		<p><input type="submit" name="op" value="DELETE"></input></p>
 	</form>
 
-	<p><button><a href={{url_for('home_page')}}>BACK</a></button></p>
+	<p><a href={{url_for('home_page')}}><img src="../static/images/border_back.png"></img></a></p>
 
 </body>
 
